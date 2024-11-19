@@ -1,0 +1,100 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="/src/child-component.html">
+
+<dom-module id="my-view6">
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 16px;
+                background-color: #f8f9fa;
+            }
+
+            .card {
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3, box-shadow 0.3;
+                animation: fadeIn 1s ease-in-out;
+            }
+
+            .card:hover {
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+                transform: translateY(-5px);
+                box-shadow: 0px 12px 24px #b5b5b5, -12px -12px 24px #ffffff;
+            }
+
+            .header {
+                font-size: 24px;
+                margin-bottom: 16px;
+                font-weight: bold;
+                color: #333;
+                animation: fadeIn 1s ease-in-out;
+            }
+
+            .input-section {
+                margin-bottom: 16px;
+                animation: fadeIn 1s ease-in-out;
+            }
+
+            input {
+                padding: 8px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                animation: fadeIn 1s ease-in-out;
+            }
+
+            .child-section {
+                margin-top: 24px;
+                padding: 16px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                animation: fadeIn 1s ease-in-out; 
+            }
+
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+            <div class="card">
+                <div class="header">Parent Component</div>
+
+                <div class="input-section">
+                    <label for="parentInput">Parent Data: </label>
+                    <input id="parentInput" type="text" value="{{parentMessage::input}}" placeholder="Write something here...">
+                </div>
+
+                <div class="child-section">
+                    <child-component 
+                        message="{{parentMessage}}"
+                        on-message-changed="handleMessageChanged">
+                    </child-component>
+                </div>
+            </div>
+        </template>
+
+        <script>
+            Polymer({
+                is: 'my-view6',
+
+                properties: {
+                    parentMessage: {
+                        type: String,
+                        value: 'Hello from Parent!',
+                    },
+                },
+
+                handleMessageChanged: function(event) {
+                    const updatedMessage = event.detail.value;
+                    // eslint-disable-next-line no-console
+                    console.log('New message: ', updatedMessage);
+                    this.parentMessage = updatedMessage;
+                },
+            });
+        </script>
+</dom-module>

@@ -1,0 +1,60 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="child-component">
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 16px;
+                background-color: #eef2f3;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+            }
+
+            .header {
+                font-size: 20px;
+                margin-bottom: 16px;
+                font-weight: bold;
+                color: #555;
+            }
+
+            input {
+                padding: 8px;
+                font-size: 16px;
+                border: 1px solid #bbb;
+                border-radius: 4px;
+                width: 100%;
+            }
+        </style>
+
+        <div class="header">Child Component</div>
+
+        <div>
+            <label for="childInput">Child Data:</label>
+            <input id="childInput" type="text" value="{{message::input}}" placeholder="Child Message">
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'child-component',
+
+            properties: {
+                message: {
+                    type: String,
+                    notify: true, // true will notify the parent
+                    value: '',
+                },
+            },
+
+            observers: [
+                'messageUpdated(message)',
+            ],
+
+            messageUpdated: function(newValue) {
+                // tell the parent when the value changes.
+                this.fire('message-changed', {value: newValue});
+            },
+        });
+    </script>
+</dom-module>

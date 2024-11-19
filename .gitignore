@@ -1,0 +1,12 @@
+# Node.js dependencies
+node_modules/
+
+# Bower components
+bower_components/
+
+# OS or editor-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env

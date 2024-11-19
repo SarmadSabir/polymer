@@ -1,0 +1,89 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-view4">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                padding: 16px;
+                background-color: #eceff1;
+                font-family: 'Arial', sans-serif;
+            }
+
+            .card {
+                padding: 20px;
+                background: linear-gradient(145deg, #ffffff, #e6e6e6);
+                border-radius: 15px;
+                box-shadow: 0px 10px 20px 20px #bebebe, -10px -10px 20px #ffffff;
+                margin-bottom: 24px;
+                margin-top: 10px;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 12px 12px 24px #b5b5b5, -12px -12px 24px #ffffff;
+            }
+
+            .header {
+                font-size: 28px;
+                font-weight: 700;
+                color: #4a4a4a;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+                margin-bottom: 12px;
+            }
+
+            .content {
+                overflow: hidden;
+                font-size: 16px;
+                color: #555;
+                line-height: 1.6;
+                animation: fadeIn 1s ease-in-out;
+            }
+
+            .content img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 10px 0;
+                transition: transform 0.3s;
+            }
+
+            .content img:hover {
+                transform: scale(1.05);
+            }
+
+            .footer {
+                text-align: left;
+                font-size: 14px;
+                color: #888;
+                margin-top: 16px;
+                font-style: italic;
+            }
+
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+
+        <div class="card">
+            <div class="header">Template View 4</div>
+            <div class="content">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAAtTsps89jJVWWxREa-mVNTVbmAN8YacbBg&s" alt="Card Image">
+                <p>A modern, interactive card experience with subtle animations a clean interface!</p>
+            </div>
+            <div class="footer">© Copyrights</div>
+        </div>
+    </template>
+
+    <script>
+        class MyView4 extends Polymer.Element {
+            static get is() { return 'my-view4'; }
+        }
+        window.customElements.define(MyView4.is, MyView4);
+    </script>
+</dom-module>

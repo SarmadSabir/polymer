@@ -1,0 +1,74 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="child-component.html">
+
+<dom-module id="my-view5">
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 16px;
+                background-color: #f8f9fa;
+            }
+
+            .header {
+                font-size: 24px;
+                margin-bottom: 16px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .input-section {
+                margin-bottom: 16px;
+            }
+
+            input {
+                padding: 8px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .child-section {
+                margin-top: 24px;
+                padding: 16px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+
+        <div class="header">Parent Component</div>
+
+        <div class="input-section">
+            <label for="parentInput">Parent Data:</label>
+            <input id="parentInput" type="text" value="{{parentMessage::input}}" placeholder="Enter a message">
+        </div>
+
+        <div class="child-section">
+            <child-component
+                message="{{parentMessage}}"
+                on-message-changed="handleMessageChanged">
+            </child-component>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-view5',
+
+            properties: {
+                parentMessage: {
+                    type: String,
+                    value: 'Hello from Parent!',
+                },
+            },
+
+            handleMessageChanged: function(event) {
+                const updatedMessage = event.detail.value;
+                // eslint-disable-next-line no-console
+                console.log('Updated message from child: ', updatedMessage);
+                this.parentMessage = updatedMessage;
+            },
+        });
+    </script>
+</dom-module>

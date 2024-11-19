@@ -1,0 +1,27 @@
+{
+  "name": "polymer-project",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Sarmad"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.0.2",
+    "iron-elements": "polymerelements/iron-elements#^1.0.10",
+    "paper-elements": "polymerelements/paper-elements#^1.0.7",
+    "google-web-components": "googlewebcomponents/google-web-components#^1.1.2"
+  },
+  "resolutions": {
+    "polymer": "^1.0.0",
+    "firebase": "^2.3.1"
+  }
+}

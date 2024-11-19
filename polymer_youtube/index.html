@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Load platform support before any code that touches the DOM -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script type="module">
+      import '@polymer/paper-checkbox/paper-checkbox.js';
+    </script>
+    <link rel="import" href="elements/hello-world.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/paper-elements/paper-elements.html">
+    <link rel = "import" href = "bower_components/paper-checkbox/paper-checkbox.html">  
+    <style>
+      :root {
+        color: blue;
+      }
+       /* core-toolbar {
+        background: #333;
+        color: #EEE;
+       }
+       example {
+        background: #333;
+       }
+       .example > div {
+        background: #EEE;
+       } */
+        /* paper-tabs {
+          background-color: grey;
+        } */
+        paper-tabs::shadow #selectionBar {
+          background-color: darkgrey;
+        }
+    </style>
+  </head>
+  <body fullbleed layout vertical>
+    <!-- <core-header-panel flex>
+        <core-toolbar>
+            <div>Hello</div>
+        </core-toolbar>
+        <p>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello</p>
+        <div class="example" layout horizontal>
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+        </div>
+
+    </core-header-panel> -->
+    <hello-world></hello-world> <!-- Custom element with its own style -->
+    <h1>Checking</h1> <!-- This will be styled by the global body style -->
+    <paper-checkbox></paper-checkbox> <!-- This will be styled by the paper elements -->
+    <i class="material-icons">&#xe8ab;</i>
+    <br>
+    <paper-tabs selected="2">
+      <paper-tab>TAB 1</paper-tab>
+      <paper-tab>TAB 2</paper-tab>
+      <paper-tab>TAB 3</paper-tab>
+    </paper-tabs>
+  </body>
+</html>

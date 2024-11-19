@@ -1,0 +1,142 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="my-view7">
+    <template>
+        <style>
+            .card {
+                padding: 20px;
+                background-color: #f5f5f5;
+                border-radius: 15px;
+                margin: 20px 10px;
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+            }
+            .button-section-title {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                display: flex;
+                gap: 20px;
+                place-items: center;
+                place-content: left;
+            }
+            button {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border-radius: 15px;
+                height: 30px;
+                padding: 0px 15px;
+                background-color: lightgrey;
+                color: black;
+            }
+            button:hover {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border-radius: 15px;
+                height: 30px;
+                padding: 0px 15px;
+                background-color: rgb(181, 179, 179);
+                color: black;
+            }
+            button:active {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border-radius: 15px;
+                height: 30px;
+                padding: 0px 15px;
+                background-color: rgb(0, 0, 0);
+                color: white;
+            }
+            .radio-button-section-title {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                display: flex;
+                gap: 20px;
+                place-content: left;
+                place-items: center;
+                font-weight: 600;
+            }
+            select, input[type="radio"] {
+                margin-top: 4px;
+            }
+            .drop-down-section-title {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                display: flex;
+                gap: 20px;
+                place-content: left;
+                place-items: center;
+            }
+            .output-section {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                display: flex;
+                gap: 20px;
+                place-content: left;
+                place-items: center;
+            }
+            select {
+                padding: 5px;
+                border-radius: 10px;
+                background-color: lightgrey;
+                font-weight: 600;
+            }
+            select:hover {
+                outline: none;
+                background-color: rgb(177, 177, 177);
+                font-weight: 600;
+            }
+        </style>
+        <div class="card">
+            <div class="button-section-title">
+                <h3>1. Simple Button: </h3>
+                <button on-click="handleButtonClick">Click Me!</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="radio-button-section-title">
+                <h3>2. Radio Button: </h3>
+                <div class="radio">
+                    <label><input type="radio" name="choice" value="Option 1" on-change="handleRadioChange">Option 1</label>
+                    <labe2><input type="radio" name="choice" value="Option 2" on-change="handleRadioChange">Option 2</labe2>
+                    <labe3><input type="radio" name="choice" value="Option 3" on-change="handleRadioChange">Option 3</labe3>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="drop-down-section-title">
+                <h3>3. Drop Down: </h3>
+                <select on-change="handleDropDownChange">
+                    <option value="" disabled selected>Choose an option</option>
+                    <option value="Option A">Option A</option>
+                    <option value="Option B">Option B</option>
+                    <option value="Option C">Option C</option>
+                </select>
+            </div> 
+        </div>
+
+        <div class="card">
+            <div class="output-section">
+                <h3>Output: </h3>
+                <div id="output">{{outputMessage}}</div>
+            </div>
+        </div> 
+    </template>
+    <script>
+        Polymer({
+            is: 'my-view7',
+        
+            properties: {
+                outputMessage: {
+                    type: String,
+                    value: 'Interact with the elements above to see the output here!',
+                },
+            },
+
+            handleButtonClick: function() {
+                this.outputMessage = 'Button clicked!';
+            },
+
+            handleRadioChange: function(event) {
+                const selectedValue = event.target.value;
+                this.outputMessage = 'Selected Radio is: ' + selectedValue;
+            },
+
+            handleDropDownChange: function(event) {
+                const selectedValue = event.target.value;
+                this.outputMessage = 'Dropdown is: ' + selectedValue;
+            },
+        });
+    </script>
+</dom-module>

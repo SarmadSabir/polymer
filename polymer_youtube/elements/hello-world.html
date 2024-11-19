@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html   ">
+
+<dom-module id="hello-world">
+  <template>
+    <style>
+      :host ul {
+        font-family: sans-serif;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        color: red;
+      }
+      :host p {
+        color: red;
+      }
+    </style>
+    <ul>
+      <template is="dom-repeat" items="{{names}}">
+        <li>Hello [[item.name]]</li>
+      </template>
+    </ul>
+    <p>This is a simple Polymer element.</p>
+  </template>
+  <script>
+    Polymer({
+      is: 'hello-world',
+
+      ready: function() {
+        this.names = [
+          { name: 'World' },
+          { name: 'Sarmad' },
+          { name: 'Mark' },
+          { name: 'Demo' },
+          { name: 'Ben' }
+        ];
+      }
+    });
+  </script>
+</dom-module>
